@@ -9,7 +9,11 @@ var world;
 var stand1,stand2;
 var holder,ball,ground;
 
-var slingshot,ball;
+var slingShot,ball;
+
+function preload(){
+  ballImg = loadImage("Ball.png");
+}
 
 function setup() {
   createCanvas(900,400);
@@ -118,8 +122,20 @@ function draw() {
     block28.display();
     block29.display();
     block30.display();
+
+   //ball.display(ball.position.x, ball.position.y);
+
+    imageMode(CENTER);
+    image(ballImg,ball.position.x,ball.position.y,40,40);
     slingShot.display();
-    ball.display();
 
   drawSprites();
+}
+
+function mouseDragged(){
+  Matter.Body.setPosition(ball.bodyB, {x: mouseX , y: mouseY});
+}
+
+function mouseReleased(){
+  slingShot.move();
 }
