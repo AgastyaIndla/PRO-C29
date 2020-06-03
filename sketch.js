@@ -12,7 +12,7 @@ var holder,ball,ground;
 var slingShot,ball;
 
 function preload(){
-  ballImg = loadImage("Ball.png");
+  ballImg = loadImage("polygon.png");
 }
 
 function setup() {
@@ -77,7 +77,7 @@ ball = Bodies.circle(50,200,20);
 World.add(world,ball);
 
 //Sling Shot 
-slingShot = new Shooter(this.ball,{x:100,y:200});
+slingShot = new Shooter(this.ball,{x:150,y:200});
 
 }
 
@@ -133,7 +133,7 @@ function draw() {
 }
 
 function mouseDragged(){
-  Matter.Body.setPosition(ball.bodyB, {x: mouseX , y: mouseY});
+  Matter.Body.setPosition(this.ball, {x: mouseX , y: mouseY});
 }
 
 function mouseReleased(){
